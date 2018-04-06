@@ -1,0 +1,17 @@
+{
+  "name": "indesign.d.ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ldubos/indesign.d.ts.git"
+  },
+  "author": "Ludwig DUBOS <ludwig.dubos@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ldubos/indesign.d.ts/issues"
+  },
+  "homepage": "https://github.com/ldubos/indesign.d.ts#readme"
+}
