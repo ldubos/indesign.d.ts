@@ -2614,3 +2614,120 @@ interface NamespaceConstructor {
 }
 
 declare var Namespace: NamespaceConstructor;
+
+/**
+ * Creates a TCP/IP connection, or establishes a TCP/IP server.
+ */
+interface Socket {
+
+    /**
+     * When true, the connection is active.
+     */
+    connected: boolean;
+
+    /**
+     * Sets or retrieves the name of the encoding used to transmit data.
+     * Typical values are "ASCII", "BINARY", or "UTF-8".
+     */
+    encoding: encoding;
+
+    /**
+     * When true, the receive buffer is empty.
+     */
+    eof: boolean;
+
+    /**
+     * A message describing the most recent error. Setting this value clears any error message.
+     */
+    error: string;
+
+    /**
+     * The name of the remote computer when a connection is established.
+     * If the connection is shut down or does not exist, the property contains the empty string.
+     */
+    host: string;
+
+    /**
+     * The timeout in seconds to be applied to read or write operations.
+     */
+    timeout: number;
+
+    /**
+     * Terminates the open connection.
+     * Returns true if the connection was closed, false on I/O errors.
+     * Deleting the object also closes the connection, but not until JavaScript garbage-collects the object.
+     * The connection might stay open longer than you wish if you do not close it explicitly.
+     */
+    close(): boolean;
+
+    /**
+     * Instructs the object to start listening for an incoming connection.
+     * The call to open() and the call to listen()are mutually exclusive.
+     * Call one function or the other, not both.
+     * @param port Instructs the object to start listening for an incoming connection.
+     *             The call to open() and the call to listen()are mutually exclusive.
+     *             Call one function or the other, not both.
+     * @param encoding The encoding to be used for the connection
+     *                 Typical values are "ASCII", "BINARY", or "UTF-8".
+     *                 (default: ASCII)
+     */
+    listen(port: number, encoding?: encoding): boolean;
+
+    /**
+     * Opens the connection for subsequent read/write operations.
+     * The call to open() and the call to listen() are mutually exclusive.
+     * Call one function or the other, not both.
+     * @param host The server to connect to.
+     *             This can be a DNS name, an IPv4 address, or an IPv6 address, followed by a colon and a port number.
+     * @param encoding The encoding to be used for the connection
+     *                 Typical values are "ASCII", "BINARY", or "UTF-8".
+     *                 (default: ASCII)
+     */
+    open(host: string, encoding?: encoding): boolean;
+
+    /**
+     * Checks a listening object for a new incoming connection.
+     * If a connection request was detected, the method returns a new Socket object that wraps the new connection.
+     * Use this connection object to communicate with the remote computer.
+     * After use, close the connection and delete the JavaScript object.
+     * If no new connection request was detected, the method returns null.
+     */
+    poll(): Socket | null;
+
+    /**
+     * Reads up to the specified number of characters from the connection. CR characters are ignored unless the encoding is set to "BINARY".
+     * Returns a string that contains up to the number of characters that were supposed to be read, or the number of characters read before the connection closed or timed out.
+     * @param count The number of characters to read.
+     *              If not supplied, the connection attempts to read as many characters it can get and returns immediately.
+     */
+    read(count?: number): string;
+
+    /**
+     * Reads one line of text up to the next line feed.
+     * Line feeds are recognized as LF or CRLF pairs.
+     * CR characters are ignored.
+     * Returns a string containing the characters.
+     */
+    readln(): string;
+
+    /**
+     * Concatenates all arguments into a single string and writes that string to the connection.
+     * @param text Any number of string values. All arguments are concatenated to form the string to be written.
+     *             CRLF sequences are converted to LFs unless the encoding is set to "BINARY".
+     */
+    write(text: string): boolean;
+
+    /**
+     * Concatenates all arguments into a single string, appends a LF character, and writes that string to the connection.
+     * @param text Any number of string values. All arguments are concatenated to form the string to be written.
+     *             CRLF sequences are converted to LFs unless the encoding is set to "BINARY".
+     */
+    writeln(text: string): boolean;
+}
+
+interface SocketConstructor {
+    new(): Socket;
+    (): Socket;
+}
+
+declare var Socket: SocketConstructor;
