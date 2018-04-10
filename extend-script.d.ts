@@ -1116,10 +1116,6 @@ interface URIErrorConstructor {
 
 declare var URIError: URIErrorConstructor;
 
-/////////////////////////////
-/// ECMAScript Array API
-/////////////////////////////
-
 interface Array<T> {
     /**
      * Gets or sets the length of the array. This is a number one higher than the highest element defined in an array.
@@ -2777,3 +2773,39 @@ interface SocketConstructor {
 }
 
 declare var Socket: SocketConstructor;
+
+/**
+ * Represents a measurement as a combination of values and unit.
+ * Note: this object is not available in all applications.
+ */
+interface UnitValue {
+
+    /**
+     * The base unit.
+     */
+    baseUnit: UnitValue;
+
+    /**
+     * The unit name.
+     */
+    type: string;
+
+    /**
+     * The numeric value.
+     */
+    value: number;
+
+    /**
+     * Returns this instance as a different unit.
+     * @param unitName The unit name.
+     */
+    as(unitName: string): UnitValue;
+
+    /**
+     * Converts this instance to a different unit.
+     * @param unitName The unit name.
+     */
+    convert(unitName: string): UnitValue;
+}
+
+declare var UnitValue: UnitValue;
