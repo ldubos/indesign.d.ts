@@ -2585,3 +2585,30 @@ interface QNameConstructor {
 }
 
 declare var QName: QNameConstructor;
+
+interface Namespace {
+
+    /**
+     * The named prefix.
+     */
+    prefix: string;
+
+    /**
+     * The URI.
+     */
+    uri: string;
+}
+
+interface NamespaceConstructor {
+
+    /**
+     * Creates a Namespace object.
+     * @param The URI prefix, specified as an existing Namespace object, QName object, or string.
+     *            If this is a Namespace or a QName object, the URI and prefix are set to that of the object.
+     *            If this is a string, the prefix is set to that string, and the URI must be specified.
+     */
+    new(prefix: Namespace | QName | string, uri?: string): Namespace;
+    (prefix: Namespace | QName | string, uri?: string): Namespace;
+}
+
+declare var Namespace: NamespaceConstructor;
