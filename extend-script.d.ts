@@ -2556,3 +2556,32 @@ interface XMLListConstructor extends XML {
 }
 
 declare var XMLList: XMLListConstructor;
+
+interface QName {
+
+    /**
+     * The local name part of the qualified name.
+     */
+    localName: string;
+
+    /**
+     * The URI part of the qualified name.
+     */
+    uri: string;
+}
+
+interface QNameConstructor {
+
+    /**
+     * Creates a QName object.
+     * @param uri The URI, specified as a Namespace object, an existing QName object, or string.
+     *            If this is a `Namespace` object, the URI is set to the namespace URI, and there is no local name.
+     *            If this is a `QName` object, the URI and localName is set to those of that object.
+     *            If this is a `string`, the URI is set to that string.
+     * @param name The local name. Used only if URI is given as a string.
+     */
+    new(uri: QName | Namespace | string, name?: string): QName;
+    (uri: QName | Namespace | string, name?: string): QName;
+}
+
+declare var QName: QNameConstructor;
