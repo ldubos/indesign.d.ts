@@ -1213,6 +1213,8 @@ interface ArrayLike<T> {
 /// ExtendScript
 /////////////////////////////
 
+type encoding = "ascii" | "utf-8" | "binary";
+
 interface ScreenObject extends Object {
 
     /**
@@ -1612,7 +1614,7 @@ interface File {
      * It stores each byte of the file as one Unicode character regardless of any encoding.
      * When writing, the lower byte of each Unicode character is treated as a single byte to write.
      */
-    encoding: "ascii" | "utf-8" | "binary";
+    encoding: encoding;
 
     /**
      * When true, a read attempt caused the current position to be at the end of the file, or the file is not open.
@@ -2173,7 +2175,7 @@ interface Folder {
      *             Typical values are "ASCII", "binary", or "UTF-8".
      *             For a complete list of supported encodings, see the JavaScript Tools Guide.
      */
-    isEncodingAvailable(name: "ascii" | "utf-8" | "binary"): boolean;
+    isEncodingAvailable(name: encoding): boolean;
 
     /**
      * Deletes the folder associated with this object from disk immediately, without moving it to the system trash.
