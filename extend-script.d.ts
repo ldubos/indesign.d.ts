@@ -2535,8 +2535,8 @@ interface XML {
 }
 
 interface XMLConstructor {
-    new(text: string): XML;
-    (text: string): XML;
+    new(text?: string): XML;
+    (text?: string): XML;
 }
 
 declare var XML: XMLConstructor;
