@@ -5,208 +5,207 @@
 
 /// <reference no-default-lib="true"/>
 
-/////////////////////////////
-/// ECMAScript APIs
-/////////////////////////////
-
 declare var NaN: number;
 declare var Infinity: number;
 
 /**
-  * Evaluates JavaScript code and executes it.
-  * @param x A String value that contains valid JavaScript code.
-  */
+ * Evaluates JavaScript code and executes it.
+ * @param x A String value that contains valid JavaScript code.
+ */
 declare function eval(x: string): any;
 
 /**
-  * Converts A string to an integer.
-  * @param s A string to convert into a number.
-  * @param radix A value between 2 and 36 that specifies the base of the number in numString.
-  * If this argument is not supplied, strings with a prefix of '0x' are considered hexadecimal.
-  * All other strings are considered decimal.
-  */
+ * Converts A string to an integer.
+ * @param s A string to convert into a number.
+ * @param radix A value between 2 and 36 that specifies the base of the number in numString.
+ * If this argument is not supplied, strings with a prefix of '0x' are considered hexadecimal.
+ * All other strings are considered decimal.
+ */
 declare function parseInt(s: string, radix?: number): number;
 
 /**
-  * Converts a string to a floating-point number.
-  * @param string A string that contains a floating-point number.
-  */
+ * Converts a string to a floating-point number.
+ * @param string A string that contains a floating-point number.
+ */
 declare function parseFloat(string: string): number;
 
 /**
-  * Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
-  * @param number A numeric value.
-  */
+ * Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
+ * @param number A numeric value.
+ */
 declare function isNaN(number: number): boolean;
 
 /**
-  * Determines whether a supplied number is finite.
-  * @param number Any numeric value.
-  */
+ * Determines whether a supplied number is finite.
+ * @param number Any numeric value.
+ */
 declare function isFinite(number: number): boolean;
 
 /**
-  * Gets the unencoded version of an encoded Uniform Resource Identifier (URI).
-  * @param encodedURI A value representing an encoded URI.
-  */
+ * Gets the unencoded version of an encoded Uniform Resource Identifier (URI).
+ * @param encodedURI A value representing an encoded URI.
+ */
 declare function decodeURI(encodedURI: string): string;
 
 /**
-  * Gets the unencoded version of an encoded component of a Uniform Resource Identifier (URI).
-  * @param encodedURIComponent A value representing an encoded URI component.
-  */
+ * Gets the unencoded version of an encoded component of a Uniform Resource Identifier (URI).
+ * @param encodedURIComponent A value representing an encoded URI component.
+ */
 declare function decodeURIComponent(encodedURIComponent: string): string;
 
 /**
-  * Encodes a text string as a valid Uniform Resource Identifier (URI)
-  * @param uri A value representing an encoded URI.
-  */
+ * Encodes a text string as a valid Uniform Resource Identifier (URI)
+ * @param uri A value representing an encoded URI.
+ */
 declare function encodeURI(uri: string): string;
 
 /**
-  * Encodes a text string as a valid component of a Uniform Resource Identifier (URI).
-  * @param uriComponent A value representing an encoded URI component.
-  */
+ * Encodes a text string as a valid component of a Uniform Resource Identifier (URI).
+ * @param uriComponent A value representing an encoded URI component.
+ */
 declare function encodeURIComponent(uriComponent: string): string;
 
 /**
-  * Displays an alert box.
-  * @param message The text to display.
-  * @param title The title of the alert (ignored on the Macintosh).
-  * @param errorIcon Display an Error icon (ignored on the Macintosh). Default is false.
-  */
+ * Displays an alert box.
+ * @param message The text to display.
+ * @param title The title of the alert (ignored on the Macintosh).
+ * @param errorIcon Display an Error icon (ignored on the Macintosh). Default is false.
+ */
 declare function alert(message: string, title?: string, errorIcon?: boolean): string;
 
 /**
-  * Displays an alert box with Yes and No buttons; returns true for Yes.
-  * @param message The text to display.
-  * @param noAsDefault Set to true to set the No button as the default button. Default is false.
-  * @param title The title of the alert (ignored on the Macintosh).
-  */
+ * Displays an alert box with Yes and No buttons; returns true for Yes.
+ * @param message The text to display.
+ * @param noAsDefault Set to true to set the No button as the default button. Default is false.
+ * @param title The title of the alert (ignored on the Macintosh).
+ */
 declare function comfirm(message: string, noAsDefault?: boolean, title?: string): boolean;
 
 /**
-  * Creates a URL-encoded string from aString.
-  * In the new string, characters of aString that require URL encoding are replaced with the format %xx, where xx is the hexadecimal value of the character code in the Unicode character set.
-  * This format is used to transmit information appended to a URL during, for example, execution of the GET method.
-  * Use the unescape() global function to translate the string back into its original format.
-  * Returns a string which is aString URL-encoded.
-  * @param aString The string to be encoded.
-  */
-declare function escpae(aString: string): string;
+ * Creates a URL-encoded string from aString.
+ * In the new string, characters of aString that require URL encoding are replaced with the format %xx, where xx is the hexadecimal value of the character code in the Unicode character set.
+ * This format is used to transmit information appended to a URL during, for example, execution of the GET method.
+ * Use the unescape() global function to translate the string back into its original format.
+ * Returns a string which is aString URL-encoded.
+ * @param aString The string to be encoded.
+ */
+declare function escape(aString: string): string;
 
 /**
-  * Returns true if the supplied string is a valid XML name.
-  * @param name The XML name to test.
-  */
+ * Returns true if the supplied string is a valid XML name.
+ * @param name The XML name to test.
+ */
 declare function isXMLName(name: string): boolean;
 
 /**
-  * Localizes a ZString-encoded string and merges additional arguments into the string.
-  * @param what The string to localize. A ZString-encoded string that can contain placeholder for additional arguments in the form %1 to %n.
-  * @param argument Optional argument(s) to be merged into the string. There may be more than one argument.
-  */
-declare function localize(what: string, argument?: any): string;
+ * Localizes a ZString-encoded string and merges additional arguments into the string.
+ * @param what The string to localize. A ZString-encoded string that can contain placeholder for additional arguments in the form %1 to %n.
+ * @param argument Optional argument(s) to be merged into the string. There may be more than one argument.
+ */
+declare function localize(what: string, ...argument: Array<any>): string;
 
 /**
-  * Displays a dialog allowing the user to enter text
-  * Returns null if the user cancelled the dialog, the text otherwise.
-  * @param prompt The text to display.
-  * @param defaultText The default text to preset the edit field with.
-  * @param title The title of the dialog.
-  */
+ * Displays a dialog allowing the user to enter text
+ * Returns null if the user cancelled the dialog, the text otherwise.
+ * @param prompt The text to display.
+ * @param defaultText The default text to preset the edit field with.
+ * @param title The title of the dialog.
+ */
 declare function prompt(prompt: string, defaultText?: string, title?: string): string;
 
 /**
-  * Defines the default XML namespace.
-  * This is a replacement function for the standard JavaScript statement set default xml namespace.
-  * @param namespace The namespace to use. Omit this parameter to return to the empty namespace.
-  * This is either a Namespace object or a string.
-  */
+ * Defines the default XML namespace.
+ * This is a replacement function for the standard JavaScript statement set default xml namespace.
+ * @param namespace The namespace to use. Omit this parameter to return to the empty namespace.
+ * This is either a Namespace object or a string.
+ */
 declare function setDefaultXMLNamespace(namespace: Namespace | string): void;
 
 /**
-  * Translates URL-encoded string into a regular string, and returns that string.
-  * Use the escape() global function to URL-encode strings.
-  * @param stringExpression The URL-encoded string to convert.
-  */
+ * Translates URL-encoded string into a regular string, and returns that string.
+ * Use the escape() global function to URL-encode strings.
+ * @param stringExpression The URL-encoded string to convert.
+ */
 declare function unescape(stringExpression: string): string;
 
 /**
-  * Creates a source code representation of the supplied argument, and returns it as a string.
-  * @param what The object to uneval.
-  */
+ * Creates a source code representation of the supplied argument, and returns it as a string.
+ * @param what The object to uneval.
+ */
 declare function uneval(what: any): string;
 
 interface Object {
+
     /** The initial value of Object.prototype.constructor is the standard built-in Object constructor. */
     constructor: Function;
 
     /**
-      * Creates and returns a string representing this object, localized for the current locale.
-      * @see toString()
-      */
+     * Creates and returns a string representing this object, localized for the current locale.
+     * @see toString()
+     */
     toLocaleString(): string;
 
     /**
-      * Creates and returns a string representation of this object.
-      * This function serializes the object, so that it can, for example, be passed between engines.
-      * Pass the returned string back to eval() to recreate the object.
-      * Works only with built-in classes.
-      */
+     * Creates and returns a string representation of this object.
+     * This function serializes the object, so that it can, for example, be passed between engines.
+     * Pass the returned string back to eval() to recreate the object.
+     * Works only with built-in classes.
+     */
     toSource(): string;
 
     /** Returns a string representation of an object. */
     toString(): string;
 
     /**
-      * Returns a date converted to a string using the current locale.
-      * @see toString()
-      */
+     * Returns a date converted to a string using the current locale.
+     * @see toString()
+     */
     toLocaleString(): string;
 
     /** Returns the primitive value of the specified object. */
     valueOf(): Object;
 
     /**
-      * Determines whether an object has a property with the specified name.
-      * @param v A property name.
-      */
+     * Determines whether an object has a property with the specified name.
+     * @param v A property name.
+     */
     hasOwnProperty(v: string): boolean;
 
     /**
-      * Determines whether an object exists in another object's prototype chain.
-      * @param v Another object whose prototype chain is to be checked.
-      */
+     * Determines whether an object exists in another object's prototype chain.
+     * @param v Another object whose prototype chain is to be checked.
+     */
     isPrototypeOf(v: Object): boolean;
 
     /**
-      * Determines whether a specified property is enumerable.
-      * @param v A property name.
-      */
+     * Determines whether a specified property is enumerable.
+     * @param v A property name.
+     */
     propertyIsEnumerable(v: string): boolean;
 
     /**
-      * Adds a watch function to a property, which is called when the value changes.
-      * This function can accept, modify, or reject a new value that the user, application, or a script has attempted to place in a property.
-      * @param name The name of the property to watch.
-      * @param callback The function to be called when the value of this property changes.
-      * This function must three arguments, and return as its result the value to be stored in the property.
-      * The arguments are: name: the name of the property that changes.
-      * oldValue: The old property value. newValue: The new property value that was specified.
-      */
+     * Adds a watch function to a property, which is called when the value changes.
+     * This function can accept, modify, or reject a new value that the user, application, or a script has attempted to place in a property.
+     * @param name The name of the property to watch.
+     * @param callback The function to be called when the value of this property changes.
+     * This function must three arguments, and return as its result the value to be stored in the property.
+     * The arguments are: name: the name of the property that changes.
+     * oldValue: The old property value. newValue: The new property value that was specified.
+     */
     watch(name: string, callback: Function): void;
 
     /**
-      * Removes the watch function of a property.
-      * @param name The name of the property to unwatch.
-      */
+     * Removes the watch function of a property.
+     * @param name The name of the property to unwatch.
+     */
     unwatch(name: string): void;
 }
 
 interface ObjectConstructor {
     new(value?: any): Object;
+
     (): any;
+
     (value: any): any;
 
     /** A reference to the prototype for a class of objects. */
@@ -217,35 +216,35 @@ interface ObjectConstructor {
 }
 
 /**
-  * Provides functionality common to all JavaScript objects.
-  */
+ * Provides functionality common to all JavaScript objects.
+ */
 declare var Object: ObjectConstructor;
 
 /**
-  * Creates a new function.
-  */
+ * Creates a new function.
+ */
 interface Function {
     /**
-      * Calls the function, substituting the specified object for the this value of the function, and the specified array for the arguments of the function.
-      * @param thisArg The object to be used as the this object.
-      * @param argArray A set of arguments to be passed to the function.
-      */
+     * Calls the function, substituting the specified object for the this value of the function, and the specified array for the arguments of the function.
+     * @param thisArg The object to be used as the this object.
+     * @param argArray A set of arguments to be passed to the function.
+     */
     apply(thisArg: any, argArray?: any): any;
 
     /**
-      * Calls a method of an object, substituting another object for the current object.
-      * @param thisArg The object to be used as the current object.
-      * @param argArray A list of arguments to be passed to the method.
-      */
+     * Calls a method of an object, substituting another object for the current object.
+     * @param thisArg The object to be used as the current object.
+     * @param argArray A list of arguments to be passed to the method.
+     */
     call(thisArg: any, ...argArray: any[]): any;
 
     prototype: any;
     length: number;
     /**
-      * The number of formal arguments.
-      * This property is deprecated; use the length property instead.
-      * @deprecated
-      */
+     * The number of formal arguments.
+     * This property is deprecated; use the length property instead.
+     * @deprecated
+     */
     arity: number;
 
     arguments: any;
@@ -254,11 +253,13 @@ interface Function {
 
 interface FunctionConstructor {
     /**
-      * Creates a new function.
-      * @param args A list of arguments the function accepts.
-      */
+     * Creates a new function.
+     * @param args A list of arguments the function accepts.
+     */
     new(...args: string[]): Function;
+
     (...args: string[]): Function;
+
     prototype: Function;
 }
 
@@ -266,6 +267,7 @@ declare var Function: FunctionConstructor;
 
 interface IArguments {
     [index: number]: any;
+
     length: number;
     callee: Function;
 }
@@ -275,171 +277,171 @@ interface String {
     toString(): string;
 
     /**
-      * Returns the character at the specified index.
-      * @param pos The zero-based index of the desired character.
-      */
+     * Returns the character at the specified index.
+     * @param pos The zero-based index of the desired character.
+     */
     charAt(pos: number): string;
 
     /**
-      * Returns the Unicode value of the character at the specified location.
-      * @param index The zero-based index of the desired character. If there is no character at the specified index, NaN is returned.
-      */
+     * Returns the Unicode value of the character at the specified location.
+     * @param index The zero-based index of the desired character. If there is no character at the specified index, NaN is returned.
+     */
     charCodeAt(index: number): number;
 
     /**
-      * Returns a string that contains the concatenation of two or more strings.
-      * @param strings The strings to append to the end of the string.
-      */
+     * Returns a string that contains the concatenation of two or more strings.
+     * @param strings The strings to append to the end of the string.
+     */
     concat(...strings: string[]): string;
 
     /**
-      * Returns a string consisting of this string enclosed in a <tt> tag.
-      */
+     * Returns a string consisting of this string enclosed in a <tt> tag.
+     */
     fixed(): string;
 
     /**
-      * Returns a string consisting of this string enclosed in a <font> tag.
-      * @param color The value to be stored in the tag's color attribute.
-      */
+     * Returns a string consisting of this string enclosed in a <font> tag.
+     * @param color The value to be stored in the tag's color attribute.
+     */
     fontcolor(color: string): string;
 
     /**
-      * Returns a string consisting of this string enclosed in a <font> tag.
-      * @param size The value to be stored in the tag's size attribute.
-      */
+     * Returns a string consisting of this string enclosed in a <font> tag.
+     * @param size The value to be stored in the tag's size attribute.
+     */
     fontsize(size: string): string;
 
     /**
-      * Returns a string consisting of this string enclosed in a <i> tag.
-      */
+     * Returns a string consisting of this string enclosed in a <i> tag.
+     */
     italics(): string;
 
     /**
-      * Returns a string consisting of this string enclosed in a <a> tag.
-      * @param href The value to be stored in the tag's href attribute.
-      */
+     * Returns a string consisting of this string enclosed in a <a> tag.
+     * @param href The value to be stored in the tag's href attribute.
+     */
     link(href: string): string;
 
     /**
-      * Returns a string consisting of this string enclosed in a <small> tag.
-      */
+     * Returns a string consisting of this string enclosed in a <small> tag.
+     */
     small(): string;
 
     /**
-      * Returns a string consisting of this string enclosed in a <strike> tag.
-      */
+     * Returns a string consisting of this string enclosed in a <strike> tag.
+     */
     strike(): string;
 
     /**
-      * Returns a string consisting of this string enclosed in a <sub> tag.
-      */
+     * Returns a string consisting of this string enclosed in a <sub> tag.
+     */
     sub(): string;
 
     /**
-      * Returns a string consisting of this string enclosed in a <sup> tag.
-      */
+     * Returns a string consisting of this string enclosed in a <sup> tag.
+     */
     sup(): string;
 
     /**
-      * Returns the position of the first occurrence of a substring.
-      * @param searchString The substring to search for in the string
-      * @param position The index at which to begin searching the String object. If omitted, search starts at the beginning of the string.
-      */
+     * Returns the position of the first occurrence of a substring.
+     * @param searchString The substring to search for in the string
+     * @param position The index at which to begin searching the String object. If omitted, search starts at the beginning of the string.
+     */
     indexOf(searchString: string, position?: number): number;
 
     /**
-      * Returns the last occurrence of a substring in the string.
-      * @param searchString The substring to search for.
-      * @param position The index at which to begin searching. If omitted, the search begins at the end of the string.
-      */
+     * Returns the last occurrence of a substring in the string.
+     * @param searchString The substring to search for.
+     * @param position The index at which to begin searching. If omitted, the search begins at the end of the string.
+     */
     lastIndexOf(searchString: string, position?: number): number;
 
     /**
-      * Determines whether two strings are equivalent in the current locale.
-      * @param that String to compare to target string
-      */
+     * Determines whether two strings are equivalent in the current locale.
+     * @param that String to compare to target string
+     */
     localeCompare(that: string): number;
 
     /**
-      * Matches a string with a regular expression, and returns an array containing the results of that search.
-      * @param regexp A variable name or string literal containing the regular expression pattern and flags.
-      */
+     * Matches a string with a regular expression, and returns an array containing the results of that search.
+     * @param regexp A variable name or string literal containing the regular expression pattern and flags.
+     */
     match(regexp: string): RegExpMatchArray;
 
     /**
-      * Matches a string with a regular expression, and returns an array containing the results of that search.
-      * @param regexp A regular expression object that contains the regular expression pattern and applicable flags.
-      */
+     * Matches a string with a regular expression, and returns an array containing the results of that search.
+     * @param regexp A regular expression object that contains the regular expression pattern and applicable flags.
+     */
     match(regexp: RegExp): RegExpMatchArray;
 
     /**
-      * Replaces text in a string, using a regular expression or search string.
-      * @param searchValue A string that represents the regular expression.
-      * @param replaceValue A string containing the text to replace for every successful match of searchValue in this string.
-      */
+     * Replaces text in a string, using a regular expression or search string.
+     * @param searchValue A string that represents the regular expression.
+     * @param replaceValue A string containing the text to replace for every successful match of searchValue in this string.
+     */
     replace(searchValue: string, replaceValue: string): string;
 
     /**
-      * Replaces text in a string, using a regular expression or search string.
-      * @param searchValue A string that represents the regular expression.
-      * @param replacer A function that returns the replacement text.
-      */
+     * Replaces text in a string, using a regular expression or search string.
+     * @param searchValue A string that represents the regular expression.
+     * @param replacer A function that returns the replacement text.
+     */
     replace(searchValue: string, replacer: (substring: string, ...args: any[]) => string): string;
 
     /**
-      * Replaces text in a string, using a regular expression or search string.
-      * @param searchValue A Regular Expression object containing the regular expression pattern and applicable flags.
-      * @param replaceValue A string containing the text to replace for every successful match of searchValue in this string.
-      */
+     * Replaces text in a string, using a regular expression or search string.
+     * @param searchValue A Regular Expression object containing the regular expression pattern and applicable flags.
+     * @param replaceValue A string containing the text to replace for every successful match of searchValue in this string.
+     */
     replace(searchValue: RegExp, replaceValue: string): string;
 
     /**
-      * Replaces text in a string, using a regular expression or search string.
-      * @param searchValue A Regular Expression object containing the regular expression pattern and applicable flags
-      * @param replacer A function that returns the replacement text.
-      */
+     * Replaces text in a string, using a regular expression or search string.
+     * @param searchValue A Regular Expression object containing the regular expression pattern and applicable flags
+     * @param replacer A function that returns the replacement text.
+     */
     replace(searchValue: RegExp, replacer: (substring: string, ...args: any[]) => string): string;
 
     /**
-      * Finds the first substring match in a regular expression search.
-      * @param regexp The regular expression pattern and applicable flags.
-      */
+     * Finds the first substring match in a regular expression search.
+     * @param regexp The regular expression pattern and applicable flags.
+     */
     search(regexp: string): number;
 
     /**
-      * Finds the first substring match in a regular expression search.
-      * @param regexp The regular expression pattern and applicable flags.
-      */
+     * Finds the first substring match in a regular expression search.
+     * @param regexp The regular expression pattern and applicable flags.
+     */
     search(regexp: RegExp): number;
 
     /**
-      * Returns a section of a string.
-      * @param start The index to the beginning of the specified portion of stringObj.
-      * @param end The index to the end of the specified portion of stringObj. The substring includes the characters up to, but not including, the character indicated by end.
-      * If this value is not specified, the substring continues to the end of stringObj.
-      */
+     * Returns a section of a string.
+     * @param start The index to the beginning of the specified portion of stringObj.
+     * @param end The index to the end of the specified portion of stringObj. The substring includes the characters up to, but not including, the character indicated by end.
+     * If this value is not specified, the substring continues to the end of stringObj.
+     */
     slice(start?: number, end?: number): string;
 
     /**
-      * Split a string into substrings using the specified separator and return them as an array.
-      * @param separator A string that identifies character or characters to use in separating the string. If omitted, a single-element array containing the entire string is returned.
-      * @param limit A value used to limit the number of elements returned in the array.
-      */
+     * Split a string into substrings using the specified separator and return them as an array.
+     * @param separator A string that identifies character or characters to use in separating the string. If omitted, a single-element array containing the entire string is returned.
+     * @param limit A value used to limit the number of elements returned in the array.
+     */
     split(separator: string, limit?: number): string[];
 
     /**
-      * Split a string into substrings using the specified separator and return them as an array.
-      * @param separator A Regular Express that identifies character or characters to use in separating the string. If omitted, a single-element array containing the entire string is returned.
-      * @param limit A value used to limit the number of elements returned in the array.
-      */
+     * Split a string into substrings using the specified separator and return them as an array.
+     * @param separator A Regular Express that identifies character or characters to use in separating the string. If omitted, a single-element array containing the entire string is returned.
+     * @param limit A value used to limit the number of elements returned in the array.
+     */
     split(separator: RegExp, limit?: number): string[];
 
     /**
-      * Returns the substring at the specified location within a String object.
-      * @param start The zero-based index number indicating the beginning of the substring.
-      * @param end Zero-based index number indicating the end of the substring. The substring includes the characters up to, but not including, the character indicated by end.
-      * If end is omitted, the characters from start through the end of the original string are returned.
-      */
+     * Returns the substring at the specified location within a String object.
+     * @param start The zero-based index number indicating the beginning of the substring.
+     * @param end Zero-based index number indicating the end of the substring. The substring includes the characters up to, but not including, the character indicated by end.
+     * If end is omitted, the characters from start through the end of the original string are returned.
+     */
     substring(start: number, end?: number): string;
 
     /** Converts all the alphabetic characters in a string to lowercase. */
@@ -459,10 +461,10 @@ interface String {
 
     // IE extensions
     /**
-      * Gets a substring beginning at the specified location and having the specified length.
-      * @param from The starting position of the desired substring. The index of the first character in the string is zero.
-      * @param length The number of characters to include in the returned substring.
-      */
+     * Gets a substring beginning at the specified location and having the specified length.
+     * @param from The starting position of the desired substring. The index of the first character in the string is zero.
+     * @param length The number of characters to include in the returned substring.
+     */
     substr(from: number, length?: number): string;
 
     /** Returns the primitive value of the specified object. */
@@ -479,14 +481,17 @@ interface String {
 
 interface StringConstructor {
     new(value?: any): String;
+
     (value?: any): string;
+
     prototype: String;
+
     fromCharCode(...codes: number[]): string;
 }
 
 /**
-  * Allows manipulation and formatting of text strings and determination and location of substrings within strings.
-  */
+ * Allows manipulation and formatting of text strings and determination and location of substrings within strings.
+ */
 declare var String: StringConstructor;
 
 interface Boolean {
@@ -502,7 +507,9 @@ interface Boolean {
 
 interface BooleanConstructor {
     new(value?: any): Boolean;
+
     (value?: any): boolean;
+
     prototype: Boolean;
 }
 
@@ -510,27 +517,27 @@ declare var Boolean: BooleanConstructor;
 
 interface Number {
     /**
-      * Returns a string representation of an object.
-      * @param radix Specifies a radix for converting numeric values to strings. This value is only used for numbers.
-      */
+     * Returns a string representation of an object.
+     * @param radix Specifies a radix for converting numeric values to strings. This value is only used for numbers.
+     */
     toString(radix?: number): string;
 
     /**
-      * Returns a string representing a number in fixed-point notation.
-      * @param fractionDigits Number of digits after the decimal point. Must be in the range 0 - 20, inclusive.
-      */
+     * Returns a string representing a number in fixed-point notation.
+     * @param fractionDigits Number of digits after the decimal point. Must be in the range 0 - 20, inclusive.
+     */
     toFixed(fractionDigits?: number): string;
 
     /**
-      * Returns a string containing a number represented in exponential notation.
-      * @param fractionDigits Number of digits after the decimal point. Must be in the range 0 - 20, inclusive.
-      */
+     * Returns a string containing a number represented in exponential notation.
+     * @param fractionDigits Number of digits after the decimal point. Must be in the range 0 - 20, inclusive.
+     */
     toExponential(fractionDigits?: number): string;
 
     /**
-      * Returns a string containing a number represented either in exponential or fixed-point notation with a specified number of digits.
-      * @param precision Number of significant digits. Must be in the range 1 - 21, inclusive.
-      */
+     * Returns a string containing a number represented either in exponential or fixed-point notation with a specified number of digits.
+     * @param precision Number of significant digits. Must be in the range 1 - 21, inclusive.
+     */
     toPrecision(precision?: number): string;
 
     /** Returns the primitive value of the specified object. */
@@ -542,7 +549,9 @@ interface Number {
 
 interface NumberConstructor {
     new(value?: any): Number;
+
     (value?: any): number;
+
     prototype: Number;
 
     /** The largest number that can be represented in JavaScript. Equal to approximately 1.79E+308. */
@@ -552,21 +561,21 @@ interface NumberConstructor {
     MIN_VALUE: number;
 
     /**
-      * A value that is not a number.
-      * In equality comparisons, NaN does not equal any value, including itself. To test whether a value is equivalent to NaN, use the isNaN function.
-      */
+     * A value that is not a number.
+     * In equality comparisons, NaN does not equal any value, including itself. To test whether a value is equivalent to NaN, use the isNaN function.
+     */
     NaN: number;
 
     /**
-      * A value that is less than the largest negative number that can be represented in JavaScript.
-      * JavaScript displays NEGATIVE_INFINITY values as -infinity.
-      */
+     * A value that is less than the largest negative number that can be represented in JavaScript.
+     * JavaScript displays NEGATIVE_INFINITY values as -infinity.
+     */
     NEGATIVE_INFINITY: number;
 
     /**
-      * A value greater than the largest number that can be represented in JavaScript.
-      * JavaScript displays POSITIVE_INFINITY values as infinity.
-      */
+     * A value greater than the largest number that can be represented in JavaScript.
+     * JavaScript displays POSITIVE_INFINITY values as infinity.
+     */
     POSITIVE_INFINITY: number;
 }
 
@@ -603,111 +612,111 @@ interface Math {
     SQRT2: number;
 
     /**
-      * Returns the absolute value of a number (the value without regard to whether it is positive or negative).
-      * For example, the absolute value of -5 is the same as the absolute value of 5.
-      * @param x A numeric expression for which the absolute value is needed.
-      */
+     * Returns the absolute value of a number (the value without regard to whether it is positive or negative).
+     * For example, the absolute value of -5 is the same as the absolute value of 5.
+     * @param x A numeric expression for which the absolute value is needed.
+     */
     abs(x: number): number;
 
     /**
-      * Returns the arc cosine (or inverse cosine) of a number.
-      * @param x A numeric expression.
-      */
+     * Returns the arc cosine (or inverse cosine) of a number.
+     * @param x A numeric expression.
+     */
     acos(x: number): number;
 
     /**
-      * Returns the arcsine of a number.
-      * @param x A numeric expression.
-      */
+     * Returns the arcsine of a number.
+     * @param x A numeric expression.
+     */
     asin(x: number): number;
 
     /**
-      * Returns the arctangent of a number.
-      * @param x A numeric expression for which the arctangent is needed.
-      */
+     * Returns the arctangent of a number.
+     * @param x A numeric expression for which the arctangent is needed.
+     */
     atan(x: number): number;
 
     /**
-      * Returns the angle (in radians) from the X axis to a point.
-      * @param y A numeric expression representing the cartesian y-coordinate.
-      * @param x A numeric expression representing the cartesian x-coordinate.
-      */
+     * Returns the angle (in radians) from the X axis to a point.
+     * @param y A numeric expression representing the cartesian y-coordinate.
+     * @param x A numeric expression representing the cartesian x-coordinate.
+     */
     atan2(y: number, x: number): number;
 
     /**
-      * Returns the smallest number greater than or equal to its numeric argument.
-      * @param x A numeric expression.
-      */
+     * Returns the smallest number greater than or equal to its numeric argument.
+     * @param x A numeric expression.
+     */
     ceil(x: number): number;
 
     /**
-      * Returns the cosine of a number.
-      * @param x A numeric expression that contains an angle measured in radians.
-      */
+     * Returns the cosine of a number.
+     * @param x A numeric expression that contains an angle measured in radians.
+     */
     cos(x: number): number;
 
     /**
-      * Returns e (the base of natural logarithms) raised to a power.
-      * @param x A numeric expression representing the power of e.
-      */
+     * Returns e (the base of natural logarithms) raised to a power.
+     * @param x A numeric expression representing the power of e.
+     */
     exp(x: number): number;
 
     /**
-      * Returns the greatest number less than or equal to its numeric argument.
-      * @param x A numeric expression.
-      */
+     * Returns the greatest number less than or equal to its numeric argument.
+     * @param x A numeric expression.
+     */
     floor(x: number): number;
 
     /**
-      * Returns the natural logarithm (base e) of a number.
-      * @param x A numeric expression.
-      */
+     * Returns the natural logarithm (base e) of a number.
+     * @param x A numeric expression.
+     */
     log(x: number): number;
 
     /**
-      * Returns the larger of a set of supplied numeric expressions.
-      * @param values Numeric expressions to be evaluated.
-      */
+     * Returns the larger of a set of supplied numeric expressions.
+     * @param values Numeric expressions to be evaluated.
+     */
     max(...values: number[]): number;
 
     /**
-      * Returns the smaller of a set of supplied numeric expressions.
-      * @param values Numeric expressions to be evaluated.
-      */
+     * Returns the smaller of a set of supplied numeric expressions.
+     * @param values Numeric expressions to be evaluated.
+     */
     min(...values: number[]): number;
 
     /**
-      * Returns the value of a base expression taken to a specified power.
-      * @param x The base value of the expression.
-      * @param y The exponent value of the expression.
-      */
+     * Returns the value of a base expression taken to a specified power.
+     * @param x The base value of the expression.
+     * @param y The exponent value of the expression.
+     */
     pow(x: number, y: number): number;
 
     /** Returns a pseudorandom number between 0 and 1. */
     random(): number;
 
     /**
-      * Returns a supplied numeric expression rounded to the nearest number.
-      * @param x The value to be rounded to the nearest number.
-      */
+     * Returns a supplied numeric expression rounded to the nearest number.
+     * @param x The value to be rounded to the nearest number.
+     */
     round(x: number): number;
 
     /**
-      * Returns the sine of a number.
-      * @param x A numeric expression that contains an angle measured in radians.
-      */
+     * Returns the sine of a number.
+     * @param x A numeric expression that contains an angle measured in radians.
+     */
     sin(x: number): number;
 
     /**
-      * Returns the square root of a number.
-      * @param x A numeric expression.
-      */
+     * Returns the square root of a number.
+     * @param x A numeric expression.
+     */
     sqrt(x: number): number;
 
     /**
-      * Returns the tangent of a number.
-      * @param x A numeric expression that contains an angle measured in radians.
-      */
+     * Returns the tangent of a number.
+     * @param x A numeric expression that contains an angle measured in radians.
+     */
     tan(x: number): number;
 }
 
@@ -792,111 +801,111 @@ interface Date {
     getTimezoneOffset(): number;
 
     /**
-      * Sets the date and time value in the Date object.
-      * @param time A numeric value representing the number of elapsed milliseconds since midnight, January 1, 1970 GMT.
-      */
+     * Sets the date and time value in the Date object.
+     * @param time A numeric value representing the number of elapsed milliseconds since midnight, January 1, 1970 GMT.
+     */
     setTime(time: number): number;
 
     /**
-      * Sets the milliseconds value in the Date object using local time.
-      * @param ms A numeric value equal to the millisecond value.
-      */
+     * Sets the milliseconds value in the Date object using local time.
+     * @param ms A numeric value equal to the millisecond value.
+     */
     setMilliseconds(ms: number): number;
 
     /**
-      * Sets the milliseconds value in the Date object using Universal Coordinated Time (UTC).
-      * @param ms A numeric value equal to the millisecond value.
-      */
+     * Sets the milliseconds value in the Date object using Universal Coordinated Time (UTC).
+     * @param ms A numeric value equal to the millisecond value.
+     */
     setUTCMilliseconds(ms: number): number;
 
     /**
-      * Sets the seconds value in the Date object using local time.
-      * @param sec A numeric value equal to the seconds value.
-      * @param ms A numeric value equal to the milliseconds value.
-      */
+     * Sets the seconds value in the Date object using local time.
+     * @param sec A numeric value equal to the seconds value.
+     * @param ms A numeric value equal to the milliseconds value.
+     */
     setSeconds(sec: number, ms?: number): number;
 
     /**
-      * Sets the seconds value in the Date object using Universal Coordinated Time (UTC).
-      * @param sec A numeric value equal to the seconds value.
-      * @param ms A numeric value equal to the milliseconds value.
-      */
+     * Sets the seconds value in the Date object using Universal Coordinated Time (UTC).
+     * @param sec A numeric value equal to the seconds value.
+     * @param ms A numeric value equal to the milliseconds value.
+     */
     setUTCSeconds(sec: number, ms?: number): number;
 
     /**
-      * Sets the minutes value in the Date object using local time.
-      * @param min A numeric value equal to the minutes value.
-      * @param sec A numeric value equal to the seconds value.
-      * @param ms A numeric value equal to the milliseconds value.
-      */
+     * Sets the minutes value in the Date object using local time.
+     * @param min A numeric value equal to the minutes value.
+     * @param sec A numeric value equal to the seconds value.
+     * @param ms A numeric value equal to the milliseconds value.
+     */
     setMinutes(min: number, sec?: number, ms?: number): number;
 
     /**
-      * Sets the minutes value in the Date object using Universal Coordinated Time (UTC).
-      * @param min A numeric value equal to the minutes value.
-      * @param sec A numeric value equal to the seconds value.
-      * @param ms A numeric value equal to the milliseconds value.
-      */
+     * Sets the minutes value in the Date object using Universal Coordinated Time (UTC).
+     * @param min A numeric value equal to the minutes value.
+     * @param sec A numeric value equal to the seconds value.
+     * @param ms A numeric value equal to the milliseconds value.
+     */
     setUTCMinutes(min: number, sec?: number, ms?: number): number;
 
     /**
-      * Sets the hour value in the Date object using local time.
-      * @param hours A numeric value equal to the hours value.
-      * @param min A numeric value equal to the minutes value.
-      * @param sec A numeric value equal to the seconds value.
-      * @param ms A numeric value equal to the milliseconds value.
-      */
+     * Sets the hour value in the Date object using local time.
+     * @param hours A numeric value equal to the hours value.
+     * @param min A numeric value equal to the minutes value.
+     * @param sec A numeric value equal to the seconds value.
+     * @param ms A numeric value equal to the milliseconds value.
+     */
     setHours(hours: number, min?: number, sec?: number, ms?: number): number;
 
     /**
-      * Sets the hours value in the Date object using Universal Coordinated Time (UTC).
-      * @param hours A numeric value equal to the hours value.
-      * @param min A numeric value equal to the minutes value.
-      * @param sec A numeric value equal to the seconds value.
-      * @param ms A numeric value equal to the milliseconds value.
-      */
+     * Sets the hours value in the Date object using Universal Coordinated Time (UTC).
+     * @param hours A numeric value equal to the hours value.
+     * @param min A numeric value equal to the minutes value.
+     * @param sec A numeric value equal to the seconds value.
+     * @param ms A numeric value equal to the milliseconds value.
+     */
     setUTCHours(hours: number, min?: number, sec?: number, ms?: number): number;
 
     /**
-      * Sets the numeric day-of-the-month value of the Date object using local time.
-      * @param date A numeric value equal to the day of the month.
-      */
+     * Sets the numeric day-of-the-month value of the Date object using local time.
+     * @param date A numeric value equal to the day of the month.
+     */
     setDate(date: number): number;
 
     /**
-      * Sets the numeric day of the month in the Date object using Universal Coordinated Time (UTC).
-      * @param date A numeric value equal to the day of the month.
-      */
+     * Sets the numeric day of the month in the Date object using Universal Coordinated Time (UTC).
+     * @param date A numeric value equal to the day of the month.
+     */
     setUTCDate(date: number): number;
 
     /**
-      * Sets the month value in the Date object using local time.
-      * @param month A numeric value equal to the month. The value for January is 0, and other month values follow consecutively.
-      * @param date A numeric value representing the day of the month. If this value is not supplied, the value from a call to the getDate method is used.
-      */
+     * Sets the month value in the Date object using local time.
+     * @param month A numeric value equal to the month. The value for January is 0, and other month values follow consecutively.
+     * @param date A numeric value representing the day of the month. If this value is not supplied, the value from a call to the getDate method is used.
+     */
     setMonth(month: number, date?: number): number;
 
     /**
-      * Sets the month value in the Date object using Universal Coordinated Time (UTC).
-      * @param month A numeric value equal to the month. The value for January is 0, and other month values follow consecutively.
-      * @param date A numeric value representing the day of the month. If it is not supplied, the value from a call to the getUTCDate method is used.
-      */
+     * Sets the month value in the Date object using Universal Coordinated Time (UTC).
+     * @param month A numeric value equal to the month. The value for January is 0, and other month values follow consecutively.
+     * @param date A numeric value representing the day of the month. If it is not supplied, the value from a call to the getUTCDate method is used.
+     */
     setUTCMonth(month: number, date?: number): number;
 
     /**
-      * Sets the year of the Date object using local time.
-      * @param year A numeric value for the year.
-      * @param month A zero-based numeric value for the month (0 for January, 11 for December). Must be specified if numDate is specified.
-      * @param date A numeric value equal for the day of the month.
-      */
+     * Sets the year of the Date object using local time.
+     * @param year A numeric value for the year.
+     * @param month A zero-based numeric value for the month (0 for January, 11 for December). Must be specified if numDate is specified.
+     * @param date A numeric value equal for the day of the month.
+     */
     setFullYear(year: number, month?: number, date?: number): number;
 
     /**
-      * Sets the year value in the Date object using Universal Coordinated Time (UTC).
-      * @param year A numeric value equal to the year.
-      * @param month A numeric value equal to the month. The value for January is 0, and other month values follow consecutively. Must be supplied if numDate is supplied.
-      * @param date A numeric value equal to the day of the month.
-      */
+     * Sets the year value in the Date object using Universal Coordinated Time (UTC).
+     * @param year A numeric value equal to the year.
+     * @param month A numeric value equal to the month. The value for January is 0, and other month values follow consecutively. Must be supplied if numDate is supplied.
+     * @param date A numeric value equal to the day of the month.
+     */
     setUTCFullYear(year: number, month?: number, date?: number): number;
 
     /** Returns a date converted to a string using Universal Coordinated Time (UTC). */
@@ -910,28 +919,33 @@ interface Date {
 
 interface DateConstructor {
     new(): Date;
+
     new(value: number): Date;
+
     new(value: string): Date;
+
     new(year: number, month: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number): Date;
+
     (): string;
+
     prototype: Date;
 
     /**
-      * Parses a string containing a date, and returns the number of milliseconds between that date and midnight, January 1, 1970.
-      * @param s A date string
-      */
+     * Parses a string containing a date, and returns the number of milliseconds between that date and midnight, January 1, 1970.
+     * @param s A date string
+     */
     parse(s: string): number;
 
     /**
-      * Returns the number of milliseconds between midnight, January 1, 1970 Universal Coordinated Time (UTC) (or GMT) and the specified date.
-      * @param year The full year designation is required for cross-century date accuracy. If year is between 0 and 99 is used, then year is assumed to be 1900 + year.
-      * @param month The month as an number between 0 and 11 (January to December).
-      * @param date The date as an number between 1 and 31.
-      * @param hours Must be supplied if minutes is supplied. An number from 0 to 23 (midnight to 11pm) that specifies the hour.
-      * @param minutes Must be supplied if seconds is supplied. An number from 0 to 59 that specifies the minutes.
-      * @param seconds Must be supplied if milliseconds is supplied. An number from 0 to 59 that specifies the seconds.
-      * @param ms An number from 0 to 999 that specifies the milliseconds.
-      */
+     * Returns the number of milliseconds between midnight, January 1, 1970 Universal Coordinated Time (UTC) (or GMT) and the specified date.
+     * @param year The full year designation is required for cross-century date accuracy. If year is between 0 and 99 is used, then year is assumed to be 1900 + year.
+     * @param month The month as an number between 0 and 11 (January to December).
+     * @param date The date as an number between 1 and 31.
+     * @param hours Must be supplied if minutes is supplied. An number from 0 to 23 (midnight to 11pm) that specifies the hour.
+     * @param minutes Must be supplied if seconds is supplied. An number from 0 to 59 that specifies the minutes.
+     * @param seconds Must be supplied if milliseconds is supplied. An number from 0 to 59 that specifies the seconds.
+     * @param ms An number from 0 to 999 that specifies the milliseconds.
+     */
     UTC(year: number, month: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number): number;
 
     now(): number;
@@ -951,15 +965,15 @@ interface RegExpExecArray extends Array<string> {
 
 interface RegExp {
     /**
-      * Executes a search on a string using a regular expression pattern, and returns an array containing the results of that search.
-      * @param string The String object or string literal on which to perform the search.
-      */
+     * Executes a search on a string using a regular expression pattern, and returns an array containing the results of that search.
+     * @param string The String object or string literal on which to perform the search.
+     */
     exec(string: string): RegExpExecArray;
 
     /**
-      * Returns a Boolean value that indicates whether or not a pattern exists in a searched string.
-      * @param string String on which to perform the search.
-      */
+     * Returns a Boolean value that indicates whether or not a pattern exists in a searched string.
+     * @param string String on which to perform the search.
+     */
     test(string: string): boolean;
 
     /** Returns a copy of the text of the regular expression pattern. Read-only. The regExp argument is a Regular expression object. It can be a variable name or a literal. */
@@ -979,7 +993,9 @@ interface RegExp {
 
 interface RegExpConstructor {
     new(pattern: string, flags?: string): RegExp;
+
     (pattern: string, flags?: string): RegExp;
+
     prototype: RegExp;
 
     $1: string;
@@ -1014,7 +1030,9 @@ interface Error {
 
 interface ErrorConstructor {
     new(message?: string, file?: string, line?: number): Error;
+
     (message?: string, file?: string, line?: number): Error;
+
     prototype: Error;
 }
 
@@ -1025,7 +1043,9 @@ interface EvalError extends Error {
 
 interface EvalErrorConstructor {
     new(message?: string, file?: string, line?: number): EvalError;
+
     (message?: string, file?: string, line?: number): EvalError;
+
     prototype: EvalError;
 }
 
@@ -1036,7 +1056,9 @@ interface RangeError extends Error {
 
 interface RangeErrorConstructor {
     new(message?: string, file?: string, line?: number): RangeError;
+
     (message?: string, file?: string, line?: number): RangeError;
+
     prototype: RangeError;
 }
 
@@ -1047,7 +1069,9 @@ interface ReferenceError extends Error {
 
 interface ReferenceErrorConstructor {
     new(message?: string, file?: string, line?: number): ReferenceError;
+
     (message?: string, file?: string, line?: number): ReferenceError;
+
     prototype: ReferenceError;
 }
 
@@ -1058,7 +1082,9 @@ interface SyntaxError extends Error {
 
 interface SyntaxErrorConstructor {
     new(message?: string, file?: string, line?: number): SyntaxError;
+
     (message?: string, file?: string, line?: number): SyntaxError;
+
     prototype: SyntaxError;
 }
 
@@ -1069,7 +1095,9 @@ interface TypeError extends Error {
 
 interface TypeErrorConstructor {
     new(message?: string, file?: string, line?: number): TypeError;
+
     (message?: string, file?: string, line?: number): TypeError;
+
     prototype: TypeError;
 }
 
@@ -1080,7 +1108,9 @@ interface URIError extends Error {
 
 interface URIErrorConstructor {
     new(message?: string, file?: string, line?: number): URIError;
+
     (message?: string, file?: string, line?: number): URIError;
+
     prototype: URIError;
 }
 
@@ -1092,100 +1122,101 @@ declare var URIError: URIErrorConstructor;
 
 interface Array<T> {
     /**
-      * Gets or sets the length of the array. This is a number one higher than the highest element defined in an array.
-      */
+     * Gets or sets the length of the array. This is a number one higher than the highest element defined in an array.
+     */
     length: number;
 
     /**
-      * Returns a string representation of an array.
-      */
+     * Returns a string representation of an array.
+     */
     toString(): string;
+
     toLocaleString(): string;
 
     /**
-      * Appends new elements to an array, and returns the new length of the array.
-      * @param items New elements of the Array.
-      */
+     * Appends new elements to an array, and returns the new length of the array.
+     * @param items New elements of the Array.
+     */
     push(...items: T[]): number;
 
     /**
-      * Removes the last element from an array and returns it.
-      */
+     * Removes the last element from an array and returns it.
+     */
     pop(): T;
 
     /**
-      * Combines two or more arrays.
-      * @param items Additional items to add to the end of array1.
-      */
+     * Combines two or more arrays.
+     * @param items Additional items to add to the end of array1.
+     */
     concat<U extends T[]>(...items: U[]): T[];
 
     /**
-      * Combines two or more arrays.
-      * @param items Additional items to add to the end of array1.
-      */
+     * Combines two or more arrays.
+     * @param items Additional items to add to the end of array1.
+     */
     concat(...items: T[]): T[];
 
     /**
-      * Adds all the elements of an array separated by the specified separator string.
-      * @param separator A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma.
-      */
+     * Adds all the elements of an array separated by the specified separator string.
+     * @param separator A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma.
+     */
     join(separator?: string): string;
 
     /**
-      * Reverses the elements in an Array.
-      */
+     * Reverses the elements in an Array.
+     */
     reverse(): T[];
 
     /**
-      * Removes the first element from an array and returns it.
-      */
+     * Removes the first element from an array and returns it.
+     */
     shift(): T;
 
     /**
-      * Returns a section of an array.
-      * @param start The beginning of the specified portion of the array.
-      * @param end The end of the specified portion of the array.
-      */
+     * Returns a section of an array.
+     * @param start The beginning of the specified portion of the array.
+     * @param end The end of the specified portion of the array.
+     */
     slice(start?: number, end?: number): T[];
 
     /**
-      * Sorts an array.
-      * @param compareFn The name of the function used to determine the order of the elements. If omitted, the elements are sorted in ascending, ASCII character order.
-      */
+     * Sorts an array.
+     * @param compareFn The name of the function used to determine the order of the elements. If omitted, the elements are sorted in ascending, ASCII character order.
+     */
     sort(compareFn?: (a: T, b: T) => number): T[];
 
     /**
-      * Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
-      * @param start The zero-based location in the array from which to start removing elements.
-      */
+     * Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
+     * @param start The zero-based location in the array from which to start removing elements.
+     */
     splice(start: number): T[];
 
     /**
-      * Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
-      * @param start The zero-based location in the array from which to start removing elements.
-      * @param deleteCount The number of elements to remove.
-      * @param items Elements to insert into the array in place of the deleted elements.
-      */
+     * Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
+     * @param start The zero-based location in the array from which to start removing elements.
+     * @param deleteCount The number of elements to remove.
+     * @param items Elements to insert into the array in place of the deleted elements.
+     */
     splice(start: number, deleteCount: number, ...items: T[]): T[];
 
     /**
-      * Inserts new elements at the start of an array.
-      * @param items  Elements to insert at the start of the Array.
-      */
+     * Inserts new elements at the start of an array.
+     * @param items  Elements to insert at the start of the Array.
+     */
     unshift(...items: T[]): number;
 
     /**
-      * Returns the index of the first occurrence of a value in an array.
-      * @param searchElement The value to locate in the array.
-      * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.
-      */
+     * Returns the index of the first occurrence of a value in an array.
+     * @param searchElement The value to locate in the array.
+     * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.
+     */
     indexOf(searchElement: T, fromIndex?: number): number;
 
     /**
-      * Returns the index of the last occurrence of a specified value in an array.
-      * @param searchElement The value to locate in the array.
-      * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the search starts at the last index in the array.
-      */
+     * Returns the index of the last occurrence of a specified value in an array.
+     * @param searchElement The value to locate in the array.
+     * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the search starts at the last index in the array.
+     */
     lastIndexOf(searchElement: T, fromIndex?: number): number;
 
     [n: number]: T;
@@ -1193,12 +1224,19 @@ interface Array<T> {
 
 interface ArrayConstructor {
     new(arrayLength?: number): any[];
+
     new <T>(arrayLength: number): T[];
+
     new <T>(...items: T[]): T[];
+
     (arrayLength?: number): any[];
+
     <T>(arrayLength: number): T[];
+
     <T>(...items: T[]): T[];
+
     isArray(arg: any): arg is Array<any>;
+
     prototype: Array<any>;
 }
 
@@ -1206,6 +1244,7 @@ declare var Array: ArrayConstructor;
 
 interface ArrayLike<T> {
     length: number;
+
     [n: number]: T;
 }
 
@@ -1961,6 +2000,7 @@ interface FileConstructor {
      *             The new operator returns a File object for a nonexisting file with the same name.
      */
     new(path?: string): File;
+
     (path?: string): File;
 }
 
@@ -2244,6 +2284,7 @@ interface FolderConstructor {
      *             The new operator returns a `Folder` object for a nonexisting folder with the same name.
      */
     new(path?: string): Folder | File;
+
     (path?: string): Folder | File;
 }
 
@@ -2538,6 +2579,7 @@ interface XML {
 
 interface XMLConstructor {
     new(text?: string): XML;
+
     (text?: string): XML;
 }
 
@@ -2554,6 +2596,7 @@ interface XMLList {
 
 interface XMLListConstructor extends XML {
     new(...elements: Array<XML>): XML;
+
     (...elements: Array<XML>): XML;
 }
 
@@ -2583,6 +2626,7 @@ interface QNameConstructor {
      * @param name The local name. Used only if URI is given as a string.
      */
     new(uri: QName | Namespace | string, name?: string): QName;
+
     (uri: QName | Namespace | string, name?: string): QName;
 }
 
@@ -2610,6 +2654,7 @@ interface NamespaceConstructor {
      *            If this is a string, the prefix is set to that string, and the URI must be specified.
      */
     new(prefix: Namespace | QName | string, uri?: string): Namespace;
+
     (prefix: Namespace | QName | string, uri?: string): Namespace;
 }
 
@@ -2727,6 +2772,7 @@ interface Socket {
 
 interface SocketConstructor {
     new(): Socket;
+
     (): Socket;
 }
 
