@@ -5,65 +5,11 @@
 
 /// <reference no-default-lib="true"/>
 
-declare var NaN: number;
+/** The Infinity global property is a predefined variable with the value for infinity. */
 declare var Infinity: number;
 
-/**
- * Evaluates JavaScript code and executes it.
- * @param x A String value that contains valid JavaScript code.
- */
-declare function eval(x: string): any;
-
-/**
- * Converts A string to an integer.
- * @param s A string to convert into a number.
- * @param radix A value between 2 and 36 that specifies the base of the number in numString.
- * If this argument is not supplied, strings with a prefix of '0x' are considered hexadecimal.
- * All other strings are considered decimal.
- */
-declare function parseInt(s: string, radix?: number): number;
-
-/**
- * Converts a string to a floating-point number.
- * @param string A string that contains a floating-point number.
- */
-declare function parseFloat(string: string): number;
-
-/**
- * Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
- * @param number A numeric value.
- */
-declare function isNaN(number: number): boolean;
-
-/**
- * Determines whether a supplied number is finite.
- * @param number Any numeric value.
- */
-declare function isFinite(number: number): boolean;
-
-/**
- * Gets the unencoded version of an encoded Uniform Resource Identifier (URI).
- * @param encodedURI A value representing an encoded URI.
- */
-declare function decodeURI(encodedURI: string): string;
-
-/**
- * Gets the unencoded version of an encoded component of a Uniform Resource Identifier (URI).
- * @param encodedURIComponent A value representing an encoded URI component.
- */
-declare function decodeURIComponent(encodedURIComponent: string): string;
-
-/**
- * Encodes a text string as a valid Uniform Resource Identifier (URI)
- * @param uri A value representing an encoded URI.
- */
-declare function encodeURI(uri: string): string;
-
-/**
- * Encodes a text string as a valid component of a Uniform Resource Identifier (URI).
- * @param uriComponent A value representing an encoded URI component.
- */
-declare function encodeURIComponent(uriComponent: string): string;
+/** The NaN global property is a predefined variable with the value NaN (Not-a-Number), as specified by the IEEE-754 standard. */
+declare var NaN: number;
 
 /**
  * Displays an alert box.
@@ -71,47 +17,125 @@ declare function encodeURIComponent(uriComponent: string): string;
  * @param title The title of the alert (ignored on the Macintosh).
  * @param errorIcon Display an Error icon (ignored on the Macintosh). Default is false.
  */
-declare function alert(message: string, title?: string, errorIcon?: boolean): string;
+declare function alert(message: string, title?: string, errorIcon?: boolean): void;
 
 /**
- * Displays an alert box with Yes and No buttons; returns true for Yes.
+ * Displays an alert box with Yes and No buttons
  * @param message The text to display.
  * @param noAsDefault Set to true to set the No button as the default button. Default is false.
  * @param title The title of the alert (ignored on the Macintosh).
+ * @returns true for Yes and false for No.
  */
-declare function comfirm(message: string, noAsDefault?: boolean, title?: string): boolean;
+declare function confirm(message: string, noAsDefault?: boolean, title?: string): boolean;
+
+/**
+ * Decodes a string created with encodeURI().
+ * @param uri The text to decode.
+ * @returns the decoded text.
+ */
+declare function decodeURI(uri: string): string;
+
+/**
+ * Decodes a string created with encodeURIComponent().
+ * @param uri The text to decode.
+ * @returns the decoded text.
+ */
+declare function decodeURIComponent(uri: string): string;
+
+/**
+ * Encodes a string after RFC2396.
+ * Create an UTF-8 ASCII encoded version of this string. The string is converted into UTF-8.
+ * Every non-alphanumeric character is encoded as a percent escape character of the form %xx, where xx is the hex value of the character.
+ * After the conversion to UTF-8 encoding and escaping, it is guaranteed that the string does not contain characters codes greater than 127.
+ * The list of characters not to be encoded is -_.!~*'();/?:@&=+$,#.
+ * @param text The text to encode.
+ * @returns the encoded text or false on error.
+ */
+declare function encodeURI(text: string): string | false;
+
+/**
+ * Encodes a string after RFC2396.
+ * Create an UTF-8 ASCII encoded version of this string. The string is converted into UTF-8.
+ * Every non-alphanumeric character is encoded as a percent escape character of the form %xx, where xx is the hex value of the character.
+ * After the conversion to UTF-8 encoding and escaping, it is guaranteed that the string does not contain characters codes greater than 127.
+ * The list of characters not to be encoded is -_.!~*'().
+ * @param text The text to encode.
+ * @returns the encoded text or false on error.
+ */
+declare function encodeURIComponent(text: string): string | false;
 
 /**
  * Creates a URL-encoded string from aString.
  * In the new string, characters of aString that require URL encoding are replaced with the format %xx, where xx is the hexadecimal value of the character code in the Unicode character set.
  * This format is used to transmit information appended to a URL during, for example, execution of the GET method.
  * Use the unescape() global function to translate the string back into its original format.
- * Returns a string which is aString URL-encoded.
  * @param aString The string to be encoded.
+ * @returns a string which is aString URL-encoded.
  */
 declare function escape(aString: string): string;
 
 /**
- * Returns true if the supplied string is a valid XML name.
+ * Evaluates its argument as a JavaScript script, and returns the result of evaluation.
+ * You can pass the result of an object's toSource() method to reconstruct that object.
+ * @param stringExpression The string to evaluate.
+ */
+declare function eval(stringExpression: string): void;
+
+/**
+ * Evaluates an expression and reports whether the result is a finite number.
+ * @param expression Any valid JavaScript expression.
+ * @returns true if the expression is a finite number, false otherwise. False if the value is infinity or negative infinity.
+ */
+declare function isFinite(expression: number): boolean;
+
+/**
+ * Evaluates an expression and reports whether the result is "Not-a-Number" (NaN).
+ * @param expression Any valid JavaScript expression.
+ * @returns true if the result of evaluation is not a number (NaN), false if the value is a number.
+ */
+declare function isNaN(expression: number): boolean;
+
+/**
+ * Check if name is a valid XML name.
  * @param name The XML name to test.
+ * @returns true if the supplied string is a valid XML name.
  */
 declare function isXMLName(name: string): boolean;
 
 /**
  * Localizes a ZString-encoded string and merges additional arguments into the string.
  * @param what The string to localize. A ZString-encoded string that can contain placeholder for additional arguments in the form %1 to %n.
- * @param argument Optional argument(s) to be merged into the string. There may be more than one argument.
+ * @param arguments Optional argument(s) to be merged into the string. There may be more than one argument.
+ * @returns string with merged params.
  */
-declare function localize(what: string, ...argument: Array<any>): string;
+declare function localize(what: string, ...arguments: any[]): string;
 
 /**
- * Displays a dialog allowing the user to enter text
- * Returns null if the user cancelled the dialog, the text otherwise.
+ * Extracts a floating-point number from a string.
+ * Parses a string to find the first set of characters that can be converted to a floating point number.
+ * @param text The string from which to extract a floating point number.
+ * @returns number, or NaN if it does not encounter characters that it can converted to a number. The function supports exponential notation.
+ */
+declare function parseFloat(text: string): number;
+
+/**
+ * Extracts an integer from a string.
+ * Parses a string to find the first set of characters, in a specified base, that can be converted to an integer.
+ * @param text The string from which to extract an integer.
+ * @param base The base of the string to parse (from base 2 to base 36).
+ * If not supplied, base is determined by the format of string.
+ * @returns integer, or NaN if it does not encounter characters that it can convert to a number.
+ */
+declare function parseInt(text: string, base?: number): number;
+
+/**
+ * Displays a dialog allowing the user to enter text.
  * @param prompt The text to display.
  * @param defaultText The default text to preset the edit field with.
  * @param title The title of the dialog.
+ * @returns null if the user cancelled the dialog, the text otherwise.
  */
-declare function prompt(prompt: string, defaultText?: string, title?: string): string;
+declare function prompt(prompt: string, defaultText?: string, title?: string): string | null;
 
 /**
  * Defines the default XML namespace.
@@ -125,74 +149,84 @@ declare function setDefaultXMLNamespace(namespace: Namespace | string): void;
  * Translates URL-encoded string into a regular string, and returns that string.
  * Use the escape() global function to URL-encode strings.
  * @param stringExpression The URL-encoded string to convert.
+ * @returns unescaped stringExpression.
  */
 declare function unescape(stringExpression: string): string;
 
 /**
  * Creates a source code representation of the supplied argument, and returns it as a string.
  * @param what The object to uneval.
+ * @returns source code representation of what.
  */
 declare function uneval(what: any): string;
 
 interface Object {
+    /** Points to the constructor function that created this object. */
+    readonly constructor: Function;
 
-    /** The initial value of Object.prototype.constructor is the standard built-in Object constructor. */
-    constructor: Function;
+    /** Retrieves and returns the Reflection object associated with this method or a property. */
+    readonly reflect: Reflection;
 
     /**
-     * Creates and returns a string representing this object, localized for the current locale.
+     * Reports whether a given property is defined with an instance or within the prototype chain.
+     * @param name The name of the property to check.
+     */
+    hasOwnProperty(name: string): boolean;
+
+    /**
+     * Checks whether the given object is a prototype of this object.
+     * @param what The object to check.
+     */
+    isPrototypeOf(what: Object): boolean;
+
+    /**
+     * Reports whether an object is still valid.
+     * @param what The object to check.
+     */
+    isValid(what: Object): boolean;
+
+    /**
+     * Reports whether a given property is enumerable.
+     * @param name The name of the property to check.
+     */
+    propertyIsEnumerable(name: string): boolean;
+
+    /**
+     * @returns a string representing this object, localized for the current locale.
      * @see toString()
      */
     toLocaleString(): string;
 
     /**
-     * Creates and returns a string representation of this object.
      * This function serializes the object, so that it can, for example, be passed between engines.
      * Pass the returned string back to eval() to recreate the object.
      * Works only with built-in classes.
+     * @returns a string representation of this object.
      */
     toSource(): string;
 
-    /** Returns a string representation of an object. */
+    /**
+     * Many objects (such as Date) override this method in favor of their own implementation.
+     * If an object has no string value and no user-defined toString() method, the default method returns [object type],
+     * where type is the object type or the name of the constructor function that created the object.
+     * @returns a string representing this object.
+     */
     toString(): string;
 
     /**
-     * Returns a date converted to a string using the current locale.
-     * @see toString()
+     * Note: that you rarely need to call this method yourself.
+     * The JavaScript interpreter automatically invokes it when encountering an object where a primitive value is expected.
+     * @returns the primitive value of this object. If the object has no primitive value, returns the object itself.
      */
-    toLocaleString(): string;
-
-    /** Returns the primitive value of the specified object. */
     valueOf(): Object;
-
-    /**
-     * Determines whether an object has a property with the specified name.
-     * @param v A property name.
-     */
-    hasOwnProperty(v: string): boolean;
-
-    /**
-     * Determines whether an object exists in another object's prototype chain.
-     * @param v Another object whose prototype chain is to be checked.
-     */
-    isPrototypeOf(v: Object): boolean;
-
-    /**
-     * Determines whether a specified property is enumerable.
-     * @param v A property name.
-     */
-    propertyIsEnumerable(v: string): boolean;
 
     /**
      * Adds a watch function to a property, which is called when the value changes.
      * This function can accept, modify, or reject a new value that the user, application, or a script has attempted to place in a property.
      * @param name The name of the property to watch.
      * @param callback The function to be called when the value of this property changes.
-     * This function must three arguments, and return as its result the value to be stored in the property.
-     * The arguments are: name: the name of the property that changes.
-     * oldValue: The old property value. newValue: The new property value that was specified.
      */
-    watch(name: string, callback: Function): void;
+    watch(name: string, callback: (name: string, oldValue: any, newValue: any) => any): void;
 
     /**
      * Removes the watch function of a property.
@@ -203,26 +237,16 @@ interface Object {
 
 interface ObjectConstructor {
     new(value?: any): Object;
-
     (): any;
+    (value?: any): any;
 
-    (value: any): any;
-
-    /** A reference to the prototype for a class of objects. */
-    prototype: Object;
-
-    /** Retrieves and returns the Reflection object associated with this method or a property. */
-    reflect: Reflection;
+    /** Points to the prototype object for this object. */
+    readonly prototype: Object;
 }
 
-/**
- * Provides functionality common to all JavaScript objects.
- */
+/** The base class of all JavaScript objects. */
 declare var Object: ObjectConstructor;
 
-/**
- * Creates a new function.
- */
 interface Function {
     /**
      * Calls the function, substituting the specified object for the this value of the function, and the specified array for the arguments of the function.
