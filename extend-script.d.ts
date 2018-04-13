@@ -249,44 +249,52 @@ declare var Object: ObjectConstructor;
 
 interface Function {
     /**
-     * Calls the function, substituting the specified object for the this value of the function, and the specified array for the arguments of the function.
+     * Apply a this object and an argument list to a function.
+     * This function is different from call(); here, the arguments are suppliedas an Array object.
      * @param thisArg The object to be used as the this object.
      * @param argArray A set of arguments to be passed to the function.
+     * @returns result of function.
      */
-    apply(thisArg: any, argArray?: any): any;
+    apply(this: Function, thisArg: any, argArray?: any): any;
 
     /**
-     * Calls a method of an object, substituting another object for the current object.
+     * Apply a this object and arguments to a function.
+     * This function is different from apply(); here, the arguments are supplied one by one.
      * @param thisArg The object to be used as the current object.
      * @param argArray A list of arguments to be passed to the method.
+     * @returns result of function.
      */
-    call(thisArg: any, ...argArray: any[]): any;
+    call(this: Function, thisArg: any, ...argArray: any[]): any;
+
+    /** Returns a string representation of a function. */
+    toString(): string;
 
     prototype: any;
-    length: number;
+
+    /** The number of formal arguments. */
+    readonly length: number;
+
     /**
      * The number of formal arguments.
-     * This property is deprecated; use the length property instead.
      * @deprecated
      */
-    arity: number;
+    readonly arity: number;
 
+    /** The function arguments, packed into an array. */
     arguments: any;
-    caller: Function;
+
+    /** The function name. */
+    name: string;
 }
 
 interface FunctionConstructor {
-    /**
-     * Creates a new function.
-     * @param args A list of arguments the function accepts.
-     */
     new(...args: string[]): Function;
-
     (...args: string[]): Function;
 
-    prototype: Function;
+    readonly prototype: Function;
 }
 
+/** Wraps a built-in or JavaScript function. */
 declare var Function: FunctionConstructor;
 
 interface IArguments {
